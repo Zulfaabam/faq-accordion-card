@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Frontend Mentor | FAQ Accordion Card</title>
+  </head>
+  <body class="pt-36">
+    <div
+      class="
+        form
+        mx-auto
+        w-10/12
+        h-auto
+        relative
+        pt-28
+        pb-12
+        rounded-3xl
+        lg:grid lg:grid-cols-2 lg:p-16
+        max-w-screen-lg
+        xl:pt-20
+      "
+    >
+      <img
+        class="absolute -top-28 left-1/2 transform -translate-x-1/2 lg:hidden"
+        src="./images/illustration-woman-online-mobile.svg"
+        alt="illustration-woman-online"
+      />
+      <img
+        class="
+          hidden
+          lg:block
+          z-10
+          absolute
+          top-1/2
+          -left-24
+          transform
+          -translate-y-1/4
+        "
+        src="./images/illustration-box-desktop.svg"
+        alt="illustration-box-desktop"
+      />
+      <img
+        class="
+          hidden
+          lg:block
+          absolute
+          top-1/2
+          -left-20
+          transform
+          -translate-y-1/2
+        "
+        src="./images/illustration-woman-online-desktop.svg"
+        alt="illustration-woman-online"
+      />
+      <div class="col-start-2">
+        <h1
+          class="
+            font-extrabold
+            text-3xl text-center
+            title-color
+            lg:text-left lg:pl-5
+          "
+        >
+          FAQ
+        </h1>
+        <div class="accordion px-5 mt-4 sm:px-28 md:px-32 lg:px-5">
+          <div class="accordion-item">
+            <div class="trigger flex justify-between py-4">
+              <button class="btn text-sm heading-color">
+                How many team members can I invite?
+              </button>
+              <i
+                ><img
+                  class="arrow inline"
+                  src="./images/icon-arrow-down.svg"
+                  alt="icon-arrow-down"
+              /></i>
+            </div>
+            <div class="panel">
+              <p>
+                You can invite up to 2 additional users on the Free plan. There
+                is no limit on team members for the Premium plan.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="trigger flex justify-between py-4">
+              <button class="btn text-sm heading-color">
+                What is the maximum file upload size?
+              </button>
+              <i
+                ><img
+                  class="arrow inline"
+                  src="./images/icon-arrow-down.svg"
+                  alt="icon-arrow-down"
+              /></i>
+            </div>
+            <div class="panel">
+              <p>
+                No more than 2GB. All files in your account must fit your
+                allotted storage space.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="trigger flex justify-between py-4">
+              <button class="btn text-sm heading-color">
+                How do I reset my password?
+              </button>
+              <i
+                ><img
+                  class="arrow inline"
+                  src="./images/icon-arrow-down.svg"
+                  alt="icon-arrow-down"
+              /></i>
+            </div>
+            <div class="panel">
+              <p>
+                Click “Forgot password” from the login page or “Change password”
+                from your profile page. A reset link will be emailed to you.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="trigger flex justify-between py-4">
+              <button class="btn text-sm heading-color">
+                Can I cancel my subscription?
+              </button>
+              <i
+                ><img
+                  class="arrow inline"
+                  src="./images/icon-arrow-down.svg"
+                  alt="icon-arrow-down"
+              /></i>
+            </div>
+            <div class="panel">
+              <p>
+                Yes! Send us a message and we’ll process your request no
+                questions asked.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="trigger flex justify-between py-4">
+              <button class="btn text-sm heading-color">
+                Do you provide additional support?
+              </button>
+              <i
+                ><img
+                  class="arrow inline"
+                  src="./images/icon-arrow-down.svg"
+                  alt="icon-arrow-down"
+              /></i>
+            </div>
+            <div class="panel">
+              <p>
+                Chat and email support is available 24/7. Phone lines are open
+                during normal business hours.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="attribution text-center text-sm mt-4">
+      Challenge by
+      <a
+        class="text-white transition-all hover:opacity-50"
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        >Frontend Mentor</a
+      >
+      | Coded by
+      <a
+        class="text-white transition-all hover:opacity-50"
+        href="https://abams.vercel.app/"
+        target="_blank"
+        >Abam</a
+      >.
+    </div>
+
+    <script>
+      let accordions = document.getElementsByClassName('trigger')
+      let panels = document.getElementsByClassName('panel')
+      let btnColor = document.getElementsByClassName('heading-color')
+      let arrows = document.getElementsByClassName('arrow')
+
+      for (let i = 0; i < accordions.length; i++) {
+        accordions[i].addEventListener('click', () => {
+          btnColor[i].classList.toggle('active')
+          arrows[i].classList.toggle('transform')
+          arrows[i].classList.toggle('rotate-180')
+
+          if (panels[i].style.maxHeight) {
+            panels[i].style.maxHeight = null
+          } else {
+            panels[i].style.maxHeight = panels[i].scrollHeight + 'px'
+          }
+        })
+      }
+    </script>
+  </body>
+</html>
